@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculs commerciaux — 100 questions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main id="app" class="app intro-mode">
+
+    <!-- ─── INTRO ─── -->
+    <section id="introCard" class="card intro-card">
+      <div class="intro-icon">%</div>
+      <h1>Calculs commerciaux</h1>
+      <p>100 questions en saisie libre. Remises, TVA, taux de variation, calculs complets. Ta note ne s'affiche qu'à la fin.</p>
+      <div class="input-group">
+        <label for="studentName">Prénom</label>
+        <input id="studentName" type="text" placeholder="Ex : Manon" autocomplete="off" autofocus />
+      </div>
+      <button type="button" id="startBtn" class="btn btn-primary btn-block">Commencer</button>
+    </section>
+
+    <!-- ─── QUIZ ─── -->
+    <section id="quizCard" class="card hidden">
+      <div class="quiz-header">
+        <div class="meta-pills">
+          <span class="pill">👤 <span id="pillStudent">—</span></span>
+          <span class="pill">📋 <span id="pillQuestion">1 / 100</span></span>
+          <span class="pill">✅ <span id="pillAnswered">0</span></span>
+          <span class="pill pill-cat" id="pillCat">—</span>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+
+      <h2 id="questionText" class="question-text"></h2>
+
+      <div id="answerFields" class="answer-fields"></div>
+
+      <div class="actions">
+        <div class="actions-left">
+          <button type="button" id="nextBtn" class="btn btn-secondary">Suivante →</button>
+        </div>
+        <div class="actions-right">
+          <button type="button" id="clearBtn" class="btn btn-ghost">Effacer</button>
+          <button type="button" id="finishBtn" class="btn btn-primary" disabled>Terminer</button>
+        </div>
+      </div>
+
+      <div id="questionGrid" class="question-grid"></div>
+    </section>
+
+    <!-- ─── CALCULATOR ─── -->
+    <aside id="calcCard" class="card calc-card hidden">
+      <h3>Calculette</h3>
+      <input id="calcScreen" class="calc-screen" value="" inputmode="decimal" placeholder="0" />
+      <div class="calc-keys">
+        <button type="button" class="calc-key clear" data-calc="clear">C</button>
+        <button type="button" class="calc-key op" data-calc="back">⌫</button>
+        <button type="button" class="calc-key op" data-calc="percent">%</button>
+        <button type="button" class="calc-key op" data-calc="/">÷</button>
+        <button type="button" class="calc-key" data-calc="7">7</button>
+        <button type="button" class="calc-key" data-calc="8">8</button>
+        <button type="button" class="calc-key" data-calc="9">9</button>
+        <button type="button" class="calc-key op" data-calc="*">×</button>
+        <button type="button" class="calc-key" data-calc="4">4</button>
+        <button type="button" class="calc-key" data-calc="5">5</button>
+        <button type="button" class="calc-key" data-calc="6">6</button>
+        <button type="button" class="calc-key op" data-calc="-">−</button>
+        <button type="button" class="calc-key" data-calc="1">1</button>
+        <button type="button" class="calc-key" data-calc="2">2</button>
+        <button type="button" class="calc-key" data-calc="3">3</button>
+        <button type="button" class="calc-key op" data-calc="+">+</button>
+        <button type="button" class="calc-key" data-calc="0">0</button>
+        <button type="button" class="calc-key" data-calc=",">,</button>
+        <button type="button" class="calc-key equal" data-calc="equal">=</button>
+      </div>
+    </aside>
+
+    <!-- ─── RESULT ─── -->
+    <section id="resultCard" class="card result-card hidden">
+      <h2>Résultat final</h2>
+      <p id="resultName" class="result-name"></p>
+      <p id="scoreDisplay" class="score-display"></p>
+      <p id="scoreDetail" class="score-detail"></p>
+      <p class="score-footnote">La capture PNG a été téléchargée automatiquement.</p>
+    </section>
+
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
